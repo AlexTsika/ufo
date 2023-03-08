@@ -53,3 +53,5 @@ if (isset($_GET['id'])) {
 }
 
 require 'footer.php';
+
+?>

@@ -1,27 +1,27 @@
 <?php
-require 'vendor/autoload.php';
-use Dompdf\Dompdf;
+  require 'vendor/autoload.php';
+  use Dompdf\Dompdf;
 
-function sanitizeInput ($input){
+  function sanitizeInput ($input){
     $input = trim($input);
     $input = stripslashes($input);
     $input = htmlspecialchars($input);
     return $input;
-}
+  }
 
-function getAge($birthDate){
-   $today = new DateTime();
-   $diff = $today->diff(new DateTime($birthDate));
-   return $diff->y;
-}
+  function getAge($birthDate){
+    $today = new DateTime();
+    $diff = $today->diff(new DateTime($birthDate));
+    return $diff->y;
+  }
 
-function calculateDiscount($price, $discountPercentage) {
+  function calculateDiscount($price, $discountPercentage) {
     $discountAmount = $price * ($discountPercentage / 100);
     $discountPrice = $price - $discountAmount;
     return $discountPrice;
-}
+  }
 
-function getDateInDutch() {
+  function getDateInDutch() {
     $months = array(
       1 => 'januari',
       2 => 'februari',
@@ -36,7 +36,7 @@ function getDateInDutch() {
       11 => 'november',
       12 => 'december'
     );
-  
+
     $daysOfWeek = array(
       'zondag',
       'maandag',
@@ -46,12 +46,12 @@ function getDateInDutch() {
       'vrijdag',
       'zaterdag'
     );
-  
+
     $month = $months[date('n')];
     $dayOfWeek = $daysOfWeek[date('w')];
     $dayOfMonth = date('j');
     $year = date('Y');
-  
+
     return "$dayOfWeek $dayOfMonth $month $year";
   }
 
@@ -77,6 +77,7 @@ function getDateInDutch() {
     return $date;
   }
 
+  // encrypt id
   function encryptId ($id) {
     $id = base64_encode($id);
     // replace the = char to prevent errors
@@ -85,14 +86,14 @@ function getDateInDutch() {
     return $id;
   }
 
+  // decrypt id
   function decryptId ($id) {
     $id = strrev($id);
     $id = base64_decode($id);
     return $id;
   }
 
-
-function generatePDF($html) {
+  function generatePDF($html) {
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
     $dompdf->loadHtml($html);
@@ -113,4 +114,6 @@ function generatePDF($html) {
 
     // Return the path to the saved PDF file
     return $filenamepdf;
-}
+  }
+
+?>

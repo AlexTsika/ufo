@@ -13,7 +13,7 @@
             <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Location</th>
-                <th scope="col">Date &amp; time</th>
+                <th scope="col">Date &amp; Time</th>
                 <th scope="col">Description</th>
                 <th scope="col">Scary</th>
                 <th scope="col">Details</th>
