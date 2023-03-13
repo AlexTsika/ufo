@@ -33,7 +33,7 @@ body {
     color: white;
     }
     
-    input.btn.btn-primary {
+    .btn.btn-primary {
     background-color: #93599c;
     border: none;
     }
